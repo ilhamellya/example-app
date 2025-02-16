@@ -42,6 +42,9 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
+      # 5. Setup Docker Buildx
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
       # 5. Build and push the Docker image.
       #    It uses your Dockerfile (ideally a multi-stage build for Golang apps)
       #    and tags the image with the semantic version extracted in step 3.
